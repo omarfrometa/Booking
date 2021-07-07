@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Booking.BO" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Seq" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Enabled" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedByUserId" Type="Guid" />
+    <NavigationProperty Name="Restaurant" Relationship="Self.FK_Restaurant_Category" FromRole="Category" ToRole="Restaurant" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Seq" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Enabled" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedByUserId" Type="Guid" />
+    <NavigationProperty Name="Restaurant" Relationship="Self.FK_Restaurant_Country" FromRole="Country" ToRole="Restaurant" />
+  </EntityType>
+  <EntityType Name="KindOfFood">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Enabled" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedByUserId" Type="Guid" />
+    <NavigationProperty Name="Restaurant" Relationship="Self.FK_Restaurant_KindOfFood" FromRole="KindOfFood" ToRole="Restaurant" />
+  </EntityType>
+  <EntityType Name="Restaurant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KindOfFoodId" Type="Guid" Nullable="false" />
+    <Property Name="CategoryId" Type="Guid" />
+    <Property Name="CountryId" Type="Guid" />
+    <Property Name="Picture" Type="String" MaxLength="260" FixedLength="false" Unicode="false" />
+    <Property Name="Enabled" Type="Boolean" Nullable="false" />
+    <Property Name="Rate" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedByUserId" Type="Guid" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Restaurant_Category" FromRole="Restaurant" ToRole="Category" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_Restaurant_Country" FromRole="Restaurant" ToRole="Country" />
+    <NavigationProperty Name="KindOfFood" Relationship="Self.FK_Restaurant_KindOfFood" FromRole="Restaurant" ToRole="KindOfFood" />
+    <NavigationProperty Name="RestaurantBooking" Relationship="Self.FK_RestaurantBooking_Restaurant" FromRole="Restaurant" ToRole="RestaurantBooking" />
+    <NavigationProperty Name="RestaurantMenu" Relationship="Self.FK_RestaurantMenu_Restaurant" FromRole="Restaurant" ToRole="RestaurantMenu" />
+    <NavigationProperty Name="RestaurantPic" Relationship="Self.FK_RestaurantPic_Restaurant" FromRole="Restaurant" ToRole="RestaurantPic" />
+    <NavigationProperty Name="RestaurantReview" Relationship="Self.FK_RestaurantReview_Restaurant" FromRole="Restaurant" ToRole="RestaurantReview" />
+    <NavigationProperty Name="RestaurantTag" Relationship="Self.FK_RestaurantTag_Restaurant" FromRole="Restaurant" ToRole="RestaurantTag" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RestaurantBooking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RestaurantId" Type="Guid" Nullable="false" />
+    <Property Name="GroupSize" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedByUserId" Type="Guid" />
+    <NavigationProperty Name="Restaurant" Relationship="Self.FK_RestaurantBooking_Restaurant" FromRole="RestaurantBooking" ToRole="Restaurant" />
+  </EntityType>
+  <EntityType Name="RestaurantMenu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RestaurantId" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedByUserId" Type="Guid" />
+    <NavigationProperty Name="Restaurant" Relationship="Self.FK_RestaurantMenu_Restaurant" FromRole="RestaurantMenu" ToRole="Restaurant" />
+  </EntityType>
+  <EntityType Name="RestaurantPic">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RestaurantId" Type="Guid" Nullable="false" />
+    <Property Name="Picture" Type="String" MaxLength="260" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedByUserId" Type="Guid" />
+    <NavigationProperty Name="Restaurant" Relationship="Self.FK_RestaurantPic_Restaurant" FromRole="RestaurantPic" ToRole="Restaurant" />
+  </EntityType>
+  <EntityType Name="RestaurantReview">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RestaurantId" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Food" Type="Decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="Service" Type="Decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="Environment" Type="Decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedByUserId" Type="Guid" />
+    <NavigationProperty Name="Restaurant" Relationship="Self.FK_RestaurantReview_Restaurant" FromRole="RestaurantReview" ToRole="Restaurant" />
+  </EntityType>
+  <EntityType Name="RestaurantTag">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RestaurantId" Type="Guid" Nullable="false" />
+    <Property Name="Tag" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedByUserId" Type="Guid" />
+    <NavigationProperty Name="Restaurant" Relationship="Self.FK_RestaurantTag_Restaurant" FromRole="RestaurantTag" ToRole="Restaurant" />
+  </EntityType>
+  <Association Name="FK_Restaurant_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Restaurant">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Restaurant_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Restaurant">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Restaurant_KindOfFood">
+    <End Role="KindOfFood" Type="Self.KindOfFood" Multiplicity="1" />
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KindOfFood">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Restaurant">
+        <PropertyRef Name="KindOfFoodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestaurantBooking_Restaurant">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="1" />
+    <End Role="RestaurantBooking" Type="Self.RestaurantBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RestaurantBooking">
+        <PropertyRef Name="RestaurantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestaurantMenu_Restaurant">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="1" />
+    <End Role="RestaurantMenu" Type="Self.RestaurantMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RestaurantMenu">
+        <PropertyRef Name="RestaurantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestaurantPic_Restaurant">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="1" />
+    <End Role="RestaurantPic" Type="Self.RestaurantPic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RestaurantPic">
+        <PropertyRef Name="RestaurantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestaurantReview_Restaurant">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="1" />
+    <End Role="RestaurantReview" Type="Self.RestaurantReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RestaurantReview">
+        <PropertyRef Name="RestaurantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestaurantTag_Restaurant">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="1" />
+    <End Role="RestaurantTag" Type="Self.RestaurantTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RestaurantTag">
+        <PropertyRef Name="RestaurantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BookingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Category" EntityType="Self.Category" />
+    <EntitySet Name="Country" EntityType="Self.Country" />
+    <EntitySet Name="KindOfFood" EntityType="Self.KindOfFood" />
+    <EntitySet Name="Restaurant" EntityType="Self.Restaurant" />
+    <EntitySet Name="RestaurantBooking" EntityType="Self.RestaurantBooking" />
+    <EntitySet Name="RestaurantMenu" EntityType="Self.RestaurantMenu" />
+    <EntitySet Name="RestaurantPic" EntityType="Self.RestaurantPic" />
+    <EntitySet Name="RestaurantReview" EntityType="Self.RestaurantReview" />
+    <EntitySet Name="RestaurantTag" EntityType="Self.RestaurantTag" />
+    <AssociationSet Name="FK_Restaurant_Category" Association="Self.FK_Restaurant_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Restaurant" EntitySet="Restaurant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Restaurant_Country" Association="Self.FK_Restaurant_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Restaurant" EntitySet="Restaurant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Restaurant_KindOfFood" Association="Self.FK_Restaurant_KindOfFood">
+      <End Role="KindOfFood" EntitySet="KindOfFood" />
+      <End Role="Restaurant" EntitySet="Restaurant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestaurantBooking_Restaurant" Association="Self.FK_RestaurantBooking_Restaurant">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="RestaurantBooking" EntitySet="RestaurantBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestaurantMenu_Restaurant" Association="Self.FK_RestaurantMenu_Restaurant">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="RestaurantMenu" EntitySet="RestaurantMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestaurantPic_Restaurant" Association="Self.FK_RestaurantPic_Restaurant">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="RestaurantPic" EntitySet="RestaurantPic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestaurantReview_Restaurant" Association="Self.FK_RestaurantReview_Restaurant">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="RestaurantReview" EntitySet="RestaurantReview" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestaurantTag_Restaurant" Association="Self.FK_RestaurantTag_Restaurant">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="RestaurantTag" EntitySet="RestaurantTag" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

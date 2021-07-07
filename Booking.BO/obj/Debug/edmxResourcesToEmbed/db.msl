@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookingBOStoreContainer" CdmEntityContainer="BookingEntities">
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="Booking.BO.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Seq" ColumnName="Seq" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="Booking.BO.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Seq" ColumnName="Seq" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KindOfFood">
+      <EntityTypeMapping TypeName="Booking.BO.KindOfFood">
+        <MappingFragment StoreEntitySet="KindOfFood">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Seq" ColumnName="Seq" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Restaurant">
+      <EntityTypeMapping TypeName="Booking.BO.Restaurant">
+        <MappingFragment StoreEntitySet="Restaurant">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Seq" ColumnName="Seq" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="KindOfFoodId" ColumnName="KindOfFoodId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RestaurantBooking">
+      <EntityTypeMapping TypeName="Booking.BO.RestaurantBooking">
+        <MappingFragment StoreEntitySet="RestaurantBooking">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Seq" ColumnName="Seq" />
+          <ScalarProperty Name="RestaurantId" ColumnName="RestaurantId" />
+          <ScalarProperty Name="GroupSize" ColumnName="GroupSize" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RestaurantMenu">
+      <EntityTypeMapping TypeName="Booking.BO.RestaurantMenu">
+        <MappingFragment StoreEntitySet="RestaurantMenu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Seq" ColumnName="Seq" />
+          <ScalarProperty Name="RestaurantId" ColumnName="RestaurantId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RestaurantPic">
+      <EntityTypeMapping TypeName="Booking.BO.RestaurantPic">
+        <MappingFragment StoreEntitySet="RestaurantPic">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Seq" ColumnName="Seq" />
+          <ScalarProperty Name="RestaurantId" ColumnName="RestaurantId" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RestaurantReview">
+      <EntityTypeMapping TypeName="Booking.BO.RestaurantReview">
+        <MappingFragment StoreEntitySet="RestaurantReview">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RestaurantId" ColumnName="RestaurantId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Food" ColumnName="Food" />
+          <ScalarProperty Name="Service" ColumnName="Service" />
+          <ScalarProperty Name="Environment" ColumnName="Environment" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RestaurantTag">
+      <EntityTypeMapping TypeName="Booking.BO.RestaurantTag">
+        <MappingFragment StoreEntitySet="RestaurantTag">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RestaurantId" ColumnName="RestaurantId" />
+          <ScalarProperty Name="Tag" ColumnName="Tag" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

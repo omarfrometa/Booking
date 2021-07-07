@@ -1,0 +1,11 @@
+C:\Users\ofrometa\source\repos\Booking\Booking.BO\bin\Debug\Booking.BO.dll.config
+C:\Users\ofrometa\source\repos\Booking\Booking.BO\bin\Debug\Booking.BO.dll
+C:\Users\ofrometa\source\repos\Booking\Booking.BO\bin\Debug\Booking.BO.pdb
+C:\Users\ofrometa\source\repos\Booking\Booking.BO\bin\Debug\EntityFramework.dll
+C:\Users\ofrometa\source\repos\Booking\Booking.BO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ofrometa\source\repos\Booking\Booking.BO\bin\Debug\EntityFramework.xml
+C:\Users\ofrometa\source\repos\Booking\Booking.BO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ofrometa\source\repos\Booking\Booking.BO\obj\Debug\Booking.BO.csproj.CoreCompileInputs.cache
+C:\Users\ofrometa\source\repos\Booking\Booking.BO\obj\Debug\Booking.BO.csproj.CopyComplete
+C:\Users\ofrometa\source\repos\Booking\Booking.BO\obj\Debug\Booking.BO.dll
+C:\Users\ofrometa\source\repos\Booking\Booking.BO\obj\Debug\Booking.BO.pdb
