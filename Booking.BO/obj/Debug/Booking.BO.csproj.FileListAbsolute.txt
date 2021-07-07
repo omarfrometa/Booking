@@ -9,3 +9,4 @@ C:\Users\ofrometa\source\repos\Booking\Booking.BO\obj\Debug\Booking.BO.csproj.Co
 C:\Users\ofrometa\source\repos\Booking\Booking.BO\obj\Debug\Booking.BO.csproj.CopyComplete
 C:\Users\ofrometa\source\repos\Booking\Booking.BO\obj\Debug\Booking.BO.dll
 C:\Users\ofrometa\source\repos\Booking\Booking.BO\obj\Debug\Booking.BO.pdb
+C:\Users\ofrometa\source\repos\Booking\Booking.BO\obj\Debug\Booking.BO.csproj.AssemblyReference.cache
